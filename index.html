@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="src/js/todoClass.js" defer></script>
+  <script src="src/js/toDoList.js" defer></script>
+  <script src="src/js/app.js" defer></script>
+  <link href="dist/output.css" rel="stylesheet" />
+</head>
+
+<body class="h-screen bg-gradient-to-br from-ancient to-secondary">
+  <section class="container mx-auto px-12">
+    <h2
+      class="flex justify-center align-center pt-32 text-center text-5xl text-white font-mont font-light tracking-widest">
+      <span
+        class="inline-block bg-[url('../src/img/todo-icon.svg')] h-12 w-12 bg-no-repeat bg-contain bg-bottom mr-4 box-border"></span>TODO
+      LIST
+    </h2>
+    <table class="flex items-center justify-center mt-24 w-full bg-transparent border-primary border-4 rounded-lg">
+      <tbody class="grid w-full">
+        <tr class="table-tr grid grid-cols-7 justify-between w-full py-6 px-6">
+          <th class="col-span-1 text-neutral-50 text-2xl font-medium">Id</th>
+          <th class="col-span-3 justify-self-start text-neutral-50 text-2xl font-medium">Todo</th>
+          <th class="text-neutral-50 text-2xl font-medium">Status</th>
+          <th class="text-neutral-50 text-2xl font-medium">Edit</th>
+          <th class="text-neutral-50 text-2xl font-medium">Remove</th>
+        </tr>
+        <tr class="table-tr grid grid-cols-7 justify-between w-full py-5 px-5 items-center">
+          <td class="col-span-1 text-neutral-50 text-2xl justify-self-center">1</td>
+          <td class="col-span-3 text-neutral-50 text-xl justify-self-start font-light">Create a nav</td>
+          <td class="col-span-1 text-neutral-50 text-xl justify-self-center w-full ">
+            <button type='button' class="status bg-primary py-3 w-full border-white rounded-lg border">Done</button>
+          </td>
+          <td class="col-span-1 text-neutral-50 text-xl justify-self-center ">
+            <button type='button' class="edit py-3 px-3 border-white rounded-lg border">
+              <img class="h-7" src="src/img/todo-edit.svg" alt="pen picture to edit">
+            </button>
+          </td>
+          <td class="col-span-1 text-neutral-50 text-xl justify-self-center w-full">
+            <button class="delete bg-red-700 py-3 w-full  border-white rounded-lg border">Delete</button>
+          </td>
+        </tr>
+        <form id="form" action="">
+          <tr class="table-tr grid grid-cols-7 justify-between w-full py-3 px-5 items-center">
+            <td class="col-span-1 flex w-full justify-center">
+              <label for="todo" class="col-span-1 text-neutral-50 text-2xl">Todo:</label>
+            </td>
+            <td class="col-span-3">
+              <input type="text" name='todo' id="todo" placeholder="Your todo is waiting"
+                class="bg-transparent text-white text-xl border-none focus:outline-none">
+            </td>
+            <td class="col-span-3">
+              <button type="submit" class=" text-xl bg-green-500 text-white py-3 w-full rounded-lg">Create new todo
+              </button>
+            </td>
+          </tr>
+        </form>
+      </tbody>
+    </table>
+  </section>
+</body>
+
+</html>

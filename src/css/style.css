@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.table-tr:nth-of-type(2) {
+  background-color: hsla(227, 55%, 51%, 0.15);
+}
