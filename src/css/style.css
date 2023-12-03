@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.table-tr:nth-of-type(2) {
+.table-tr:nth-of-type(even) {
   background-color: hsla(227, 55%, 51%, 0.15);
+  transition: 1s;
 }

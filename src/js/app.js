@@ -1,14 +1,18 @@
-const todo1 = new Todo("create a h2");
-todo1.message = "nothink";
-
-const els = {
-  form: document.getElementById("form"),
-};
+"use strict";
+console.log("app.js file was loaded");
+const arrTodo = [];
 
 els.form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const target = event.target;
+  const messageValue = target.todo.value;
+  target.todo.value = "";
   todoInteraction(messageValue);
 });
 
 function todoInteraction(message) {
-  const todo = new Todo();
+  const todo = new Todo(message);
+  arrTodo.push(todo);
+  console.log("arrTodo ===", arrTodo);
+  Ui.addToPageToPage(todo);
 }
