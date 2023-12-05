@@ -1,5 +1,5 @@
 class Todo {
-  static lastId = 0;
+  static lastId = Ui.checkId();
   #id;
   #message;
   #status;
@@ -23,5 +23,8 @@ class Todo {
   }
   set status(value) {
     this.#status = value;
+  }
+  todoToObj() {
+    return { id: this.#id, message: this.#message, status: this.#status };
   }
 }
