@@ -1,15 +1,10 @@
-const els = {
-  form: document.getElementById("form"),
-  output: document.getElementById("tbody"),
-};
-let arrTodo = [];
 class Ui {
   static addToPageToPage(todo) {
-    console.log(todo);
     const messageVal = todo.message;
     const todoId = todo.id;
     const status = todo.status === true ? "Done" : "Todo";
     const tr = document.createElement("tr");
+    // add class list
     tr.classList.add(
       "table-tr",
       "grid",
@@ -22,6 +17,7 @@ class Ui {
       "border-b-primary",
       "border-b-2"
     );
+    // add html code
     let html = `
     <td class="id col-span-1 text-neutral-50 text-2xl justify-self-center">${todoId}</td>
     <td class="col-span-3 text-neutral-50 text-xl justify-self-start font-light">
@@ -41,17 +37,18 @@ class Ui {
     </td>
     `;
     tr.innerHTML = html;
+    // checking status of todo if it's completed or not
     this.checkStatus(todo, tr);
-    // create events
+    // create events with buttons
     this.createDeleteEvent(tr, todoId);
     this.createEditEvent(tr, todoId);
     this.createReadEvent(todo, tr, todoId);
-    // add todo
+    // add todo to html
     els.output.insertBefore(tr, els.form);
-
-    // check local and set
+    // check local and set data to local storage
     this.saveToLocalStorage();
   }
+
   static checkStatus(todo, tableRow) {
     const status = tableRow.querySelector(".status");
     if (todo.status === true) {
@@ -79,7 +76,6 @@ class Ui {
 
   static createEditEvent(tableRow, idValue) {
     const editBtn = tableRow.querySelector(".edit");
-
     editBtn.addEventListener("click", () => {
       const input = tableRow.querySelector("input");
       const img = tableRow.querySelector("img");
@@ -116,7 +112,6 @@ class Ui {
   static createReadEvent(todo, tableRow, idValue) {
     const statusBtn = tableRow.querySelector(".status");
     const status = tableRow.querySelector(".status");
-
     statusBtn.addEventListener("click", () => {
       const stringArr = localStorage.getItem("todoList");
       let localArr = JSON.parse(stringArr);
@@ -182,10 +177,10 @@ class Ui {
     localStorage.setItem("todoList", arrTodo);
     arrTodo = JSON.parse(arrTodo);
   }
+
   static checkId() {
     const stringTodo = localStorage.getItem("todoList");
     if (localStorage.key("todoList")) {
-      // const stringTodo = localStorage.getItem("todoList");
       const arrTodoList = JSON.parse(stringTodo);
       const arrTodoLastIndex = arrTodoList.length - 1;
       if (stringTodo !== "[]") {
